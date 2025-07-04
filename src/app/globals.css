@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --arrowLength: 15px;
 }
 
 @theme inline {
@@ -40,4 +41,25 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.afterarrow::after {
+  content: '';
+  position: absolute;
+  top:  calc(var(--arrowLength) * -1);
+  right: calc(var(--arrowLength) * 2.3);
+  transform: rotate(180deg);
+  width: 0;
+  height: 0;
+  border-left: var(--arrowLength) solid transparent;
+  border-right: var(--arrowLength) solid transparent;
+  border-top: var(--arrowLength) solid #79716b; /* Adjust color to match the background */
+/* Optional shadow for better visibility */
+}
+.afterarrow2::after {
+ 
+  top:  calc(var(--arrowLength) * -1);
+  right: calc(var(--arrowLength) * 0.55);
+  /* Adjust color to match the background */
+/* Optional shadow for better visibility */
 }
