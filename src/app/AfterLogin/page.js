@@ -1,120 +1,34 @@
 "use client";
 import Link from "next/link";
-import { ChevronDown, Bell } from "lucide-react";
 import { useState } from "react";
-
+import Nav from "@/component/nav";
 export default function AfterLogin() {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(true);
   const [Exam, setExam] = useState(false);
-  const [showNotif, setShowNotif] = useState(false);
-  const [showProfile, setShowProfile] = useState(false);
 
   // Close dropdowns when clicking outside
   // (Optional: for production, use useRef and event listeners for better UX)
 
   return (
     <div className="bg-white min-h-screen">
-      <nav className="flex justify-between items-center px-6 relative">
-        <div className="flex items-center gap-3">
-          <div className="backgrounds w-[90px] h-[80px]"></div>
-          <button
-            onClick={() => setExam(false)}
-            className="text-lg px-5 py-5 hover:bg-stone-100 hover:border-b-2 border-stone-400"
-          >
-            Home
-          </button>
-          <button
-            onClick={() => setExam(true)}
-            className="text-lg px-5 py-5 hover:bg-stone-100 hover:border-b-2 border-stone-400"
-          >
-            My Exam
-          </button>
-        </div>
-        <div className="flex items-center gap-4 relative">
-          {/* Notification Dropdown */}
-          <div className="relative">
+      <Nav
+        setExam={
+          <>
             <button
-              onClick={() => {
-                setShowNotif((v) => !v);
-                setShowProfile(false);
-              }}
-              className="relative"
+              onClick={() => setExam(false)}
+              className="text-lg px-5 py-5 hover:bg-stone-100 hover:border-b-2 border-stone-400"
             >
-              <Bell className="w-5 h-5" fill={showNotif ? "gray" : "white"} stroke={showNotif ? "gray" : "black"} />
+              Home
             </button>
-            {showNotif && (
-              <div className="afterarrow absolute -right-10 mt-2 w-64 bg-white border border-stone-500 rounded-md shadow-lg z-50">
-                <div className="px-4 py-2  font-normal text-black">
-                  Notifications
-                </div>
-                <div className="px-4 py-24 text-center text-gray-500 text-sm">
-                  No notifications
-                </div>
-                <div className="px-4 py-2 border-t border-stone-300 text-xs text-gray-600 text-center">
-                  This page will notify you.
-                </div>
-              </div>
-            )}
-          </div>
-          {/* Profile Dropdown */}
-          <div className="flex items-center gap-2 relative">
-            <div className="p-2 bg-blue-200 rounded-full w-[50px] h-[50px] flex items-center justify-center">
-              @@
-            </div>
             <button
-              onClick={() => {
-                setShowProfile((v) => !v);
-                setShowNotif(false);
-              }}
+              onClick={() => setExam(true)}
+              className="text-lg px-5 py-5 hover:bg-stone-100 hover:border-b-2 border-stone-400"
             >
-              <ChevronDown className={`w-4 h-4 ${showProfile ? "transform rotate-180" : ""} transition-transform `} />
+              My Exam
             </button>
-            {showProfile && (
-              <div className="absolute afterarrow afterarrow2 top-13 -right-4  w-48 bg-white border border-stone-500 rounded-md z-50">
-                <ul className="py-2">
-                  <li>
-                    <Link
-                      href="#"
-                      className="block px-4 py-2 hover:bg-gray-100 text-gray-700"
-                    >
-                      Profile
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="#"
-                      className="block px-4 py-2 hover:bg-gray-100 text-gray-700"
-                    >
-                      Preferences
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="#"
-                      className="block px-4 py-2 hover:bg-gray-100 text-gray-700"
-                    >
-                      Edit Account
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="#"
-                      className="block px-4 py-2 hover:bg-gray-100 text-gray-700"
-                    >
-                      Help
-                    </Link>
-                  </li>
-                  <li >
-                    <Link href="/" className=" block w-full text-left px-4 py-2 border-t border-stone-300 hover:bg-gray-100 text-red-950">
-                      Logout
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            )}
-          </div>
-        </div>
-      </nav>
+          </>
+        }
+      />
       <div className="max-w-5xl mx-auto border-2 border-gray-300">
         <h2 className="text-2xl p-3 font-semibold  text-center text-white bg-blue-800">
           Personal Information
@@ -190,7 +104,7 @@ export default function AfterLogin() {
                 {/* Subject Info */}
                 <div className="flex-1">
                   <Link
-                    href="/"
+                    href="/attemt"
                     className="text-lg font-light hover:underline text-blue-950"
                   >
                     G12 Mathematics examnation
@@ -217,7 +131,7 @@ export default function AfterLogin() {
             <div className="backgrounds2 w-full h-1/2"></div>
             <div>
               <Link
-                href="/"
+                href="/attemt"
                 className="text-xl font-light hover:underline text-blue-950 p-5"
               >
                 {" "}
