@@ -16,13 +16,13 @@ export default function AfterLogin() {
           <>
             <button
               onClick={() => setExam(false)}
-              className="text-lg px-5 py-5 hover:bg-stone-100 hover:border-b-2 border-stone-400"
+              className="text-lg px-7 py-5 hover:bg-stone-100 hover:border-b-2 border-stone-400"
             >
               Home
             </button>
             <button
               onClick={() => setExam(true)}
-              className="text-lg px-5 py-5 hover:bg-stone-100 hover:border-b-2 border-stone-400"
+              className="text-lg px-7 py-5 hover:bg-stone-100 hover:border-b-2 border-stone-400"
             >
               My Exam
             </button>
@@ -30,35 +30,35 @@ export default function AfterLogin() {
         }
       />
       <div className="max-w-5xl mx-auto border-2 border-gray-300">
-        <h2 className="text-2xl p-3 font-semibold  text-center text-white bg-blue-800">
+        <h2 className="text-2xl p-3 font-semibold  text-center text-white bg-[#130f70]">
           Personal Information
         </h2>
-        <table className="w-full text-lg  overflow-hidden bg-white shadow-lg">
+        <table className="w-full text-md  overflow-hidden bg-white shadow-lg">
           <tbody>
-            <tr className="bg-blue-50">
-              <td className="tableE font-light ">Full Name</td>
+            <tr className="bg-blue-100/60">
+              <td className="tableE font-bold ">Full Name</td>
               <td className="tableE font-bold uppercase">First Middle Last</td>
-              <td className="tableE font-light ">School</td>
-              <td className="tableE font-bold uppercase  ">Aschool</td>
+              <td className="tableE font-bold ">Gender</td>
+              <td className="tableE font-bold uppercase">M/F</td>
             </tr>
             <tr>
-              <td className="tableE font-light ">Is Blind/Def</td>
+              <td className="tableE font-bold ">Is Blind/Def</td>
               <td className="tableE font-bold uppercase">No / No</td>
-              <td className="tableE font-light ">Date of Birth</td>
+              <td className="tableE font-bold ">Date of Birth</td>
               <td className="tableE font-bold uppercase">YYYY-MM-DD</td>
             </tr>
-            <tr className="bg-blue-50">
-              <td className="tableE font-light">Location</td>
+            <tr className="bg-blue-100/60">
+              <td className="tableE font-bold">Exam Center</td>
               <td className="tableE font-bold uppercase">
                 Somewhere in Ethiopia
               </td>
-              <td className="tableE font-light ">Admission Number</td>
+              <td className="tableE font-bold ">Admission Number</td>
               <td className="tableE font-bold uppercase">xxxxxxx</td>
             </tr>
             <tr>
-              <td className="tableE font-light ">Gender</td>
-              <td className="tableE font-bold uppercase">M/F</td>
-              <td className="tableE font-light ">Enrolment Type</td>
+              <td className="tableE font-bold ">School</td>
+              <td className="tableE font-bold uppercase  ">Aschool</td>
+              <td className="tableE font-bold ">Enrolment Type</td>
               <td className="tableE font-bold uppercase"></td>
             </tr>
           </tbody>
@@ -66,12 +66,23 @@ export default function AfterLogin() {
       </div>
 
       {/* General Section */}
-      <div className="max-w-5xl mx-auto mt-30 h-[70vh]">
+      <div className="max-w-4xl mx-auto mt-30 h-[70vh]">
         <h1 className="text-4xl font-semibold mb-6">
           {Exam ? "My Exams" : "Hi, Someone👋"}
         </h1>
-        <div className="flex items-center justify-between py-2 ">
-          <h1 className="text-4xl font-semibold">General </h1>
+        <div className="flex items-center justify-between py-2 border-neutral-500 border-b-2">
+          <div className="flex gap-2 items-center">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon points="8,4 20,12 8,20" />
+            </svg>
+          <h1 className="text-4xl font-semibold ">General </h1>
+          </div>
           {Exam && (
             <button
               className="flex items-center gap-1 px-3 py-1 rounded hover:underline transition text-blue-900"
@@ -84,12 +95,12 @@ export default function AfterLogin() {
         </div>
         {Exam && (
           <div
-            className={`transition-all duration-300 overflow-hidden rounded-lg  border border-gray-200 ${
+            className={`transition-all duration-300 overflow-hidden rounded-lg py-2  border border-gray-200 ${
               expanded ? "max-h-96 py-4 px-4" : "max-h-0 py-0 px-4"
             }`}
           >
             {expanded && (
-              <div className="flex items-center gap-4 ">
+              <div className="flex items-center gap-4">
                 {/* Logo/Profile */}
                 <div className="w-12 h-12  bg-pink-700 rounded-lg flex items-center justify-center overflow-hidden">
                   <img
@@ -112,12 +123,12 @@ export default function AfterLogin() {
                   <div className="text-sm text-gray-600 mt-1 flex gap-5">
                     <span>
                       {" "}
-                      <span className="font-bold"> Opens:</span> June 1, 2025
+                      <span className="font-bold"> Opens:</span>Someday, June 1, 2025
                       6:00 AM
                     </span>
                     <span>
                       {" "}
-                      <span className="font-bold"> Closes:</span> July 10, 2025
+                      <span className="font-bold"> Closes:</span>Thatday, July 10, 2025
                       10:00 AM
                     </span>
                   </div>

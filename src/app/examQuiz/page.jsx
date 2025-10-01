@@ -362,97 +362,65 @@ export default function ExamQuiz() {
       <Nav />
       <div className="relative min-h-fit w-full flex  items-center justify-end bg-gray-50">
         {/* Main question block */}
-        {!preview ? (
-          <div className="w-3/5 flex items-start mx-6">
-            <div className="border border-black bg-[#f4f4f4] p-2 ">
-              <p className="font-bold text-lg min-w-[120px]">
-                Questions {questions[current].QNumber}
-              </p>
-              <button className={`py-4 text-md  `} onClick={handleFlag}>
-                {questions[current].flagged ? "Unflag" : "Flag"}
-              </button>
-            </div>
-            <div className="flex flex-col items-end gap-6 ml-5 w-full">
-              <div className="w-full max-w-4xl  p-5 bg-green-100 rounded-lg shadow-md flex flex-col ">
-                <div className="text-lg font-semibold mb-6 ml-6">
-                {questions[current].QNumber}. { questions[current].question}
-                </div>
-                <div className="w-full flex flex-col gap-4 mb-6">
-                  {questions[current].answers.map((ans, idx) => (
-                    <label
-                      key={idx}
-                      className={`flex items-center gap-3 p-3 rounded-lg cursor-pointer border ${
-                        questions[current].answered === idx
-                          ? ""
-                          : ""
-                      }`}
-                    >
-                      <input
-                        type="radio"
-                        name={`answer-${current}`}
-                        checked={questions[current].answered === idx}
-                        onChange={() => handleAnswer(idx)}
-                        className="accent-blue-500"
-                      />
-                      <span>{ans}</span>
-                    </label>
-                  ))}
-                </div>
-              </div>
-              <div className="">
-                {current < questions.length - 1 ? (
-                  <button
-                    className={`px-4 py-2 rounded bg-blue-700 hover:bg-blue-500 font-semibold text-white`}
-                    onClick={handleNext}
-                    disabled={questions[current].answered === null}
-                  >
-                    Next
-                  </button>
-                ) : allAnswered ? (
-                  <button
-                    className="px-4 py-2 rounded bg-blue-700 hover:bg-blue-500 font-semibold text-white"
-                    onClick={() => setPreview(true)}
-                  >
-                    Finish Attempt
-                  </button>
-                ) : null}
-              </div>
-            </div>
+
+        <div className="w-3/5 flex items-start mx-6">
+          <div className="border border-black bg-[#f4f4f4] p-2 ">
+            <p className="font-bold text-lg min-w-[120px]">
+              Questions {questions[current].QNumber}
+            </p>
+            <button className={`py-4 text-md  `} onClick={handleFlag}>
+              {questions[current].flagged ? "Unflag" : "Flag"}
+            </button>
           </div>
-        ) : (
-          <div className="w-full max-w-xl mx-auto p-8 bg-white rounded-lg shadow-md flex flex-col items-center">
-            <h2 className="text-xl font-bold mb-6">Question Preview</h2>
-            <ul className="w-full flex flex-col gap-4">
-              {questions.map((q, idx) => (
-                <li
-                  key={idx}
-                  className={`p-4 rounded-lg border ${
-                    q.answered === q.correct
-                      ? "border-green-400 bg-green-50"
-                      : "border-red-400 bg-red-50"
-                  }`}
+          <div className="flex flex-col items-end gap-6 ml-5 w-full">
+            <div className="w-full max-w-4xl  p-5 bg-green-100 rounded-lg shadow-md flex flex-col ">
+              <div className="text-lg font-semibold mb-6 ml-6">
+                {questions[current].QNumber}. {questions[current].question}
+              </div>
+              <div className="w-full flex flex-col gap-4 mb-6">
+                {questions[current].answers.map((ans, idx) => (
+                  <label
+                    key={idx}
+                    className={`flex items-center gap-3 p-3 rounded-lg cursor-pointer border ${
+                      questions[current].answered === idx ? "" : ""
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name={`answer-${current}`}
+                      checked={questions[current].answered === idx}
+                      onChange={() => handleAnswer(idx)}
+                      className="accent-blue-500"
+                    />
+                    <span>{ans}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+            <div className="">
+              {current < questions.length - 1 ? (
+                <button
+                  className={`px-4 py-2 rounded bg-blue-700 hover:bg-blue-500 font-semibold text-white`}
+                  onClick={handleNext}
+                  disabled={questions[current].answered === null}
                 >
-                  <div className="font-semibold mb-2">{q.question}</div>
-                  <div>
-                    <span className="font-bold">Your answer: </span>
-                    {q.answered !== null ? (
-                      q.answers[q.answered]
-                    ) : (
-                      <span className="italic text-gray-500">Not answered</span>
-                    )}
-                  </div>
-                  <div>
-                    <span className="font-bold">Correct answer: </span>
-                    {q.answers[q.correct]}
-                  </div>
-                </li>
-              ))}
-            </ul>
+                  Next
+                </button>
+              ) : allAnswered ? (
+                <button
+                  className="px-4 py-2 rounded bg-blue-700 hover:bg-blue-500 font-semibold text-white"
+                  onClick={() => setPreview(true)}
+                >
+                  Finish Attempt
+                </button>
+              ) : null}
+            </div>
           </div>
-        )}
+        </div>
+
         {/* question container */}
         <div className="  flex w-1/4 flex-wrap gap-2 p-8 bg-white rounded-lg shadow-2xl">
-          <p className="text-xl font-bold w-full mb-3">Questions content </p>
+          <p className="text-xl font-bold w-full mb-3">Exam content </p>
           {questions.map((q, idx) => (
             <button
               key={idx}

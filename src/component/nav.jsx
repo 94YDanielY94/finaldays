@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { ChevronDown, Bell } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -8,9 +8,8 @@ export default function Nav({ setExam }) {
   return (
     <nav className="flex justify-between items-center px-6 relative w-full">
       <div className="flex items-center gap-3">
-        <div className="backgrounds w-[90px] h-[80px]">
-        </div>
-          {setExam}
+        <div className="backgrounds w-[90px] h-[80px]"></div>
+        {setExam}
       </div>
       <div className="flex items-center gap-4 relative">
         {/* Notification Dropdown */}
@@ -24,12 +23,12 @@ export default function Nav({ setExam }) {
           >
             <Bell
               className="w-5 h-5"
-              fill={showNotif ? "gray" : "white"}
-              stroke={showNotif ? "gray" : "black"}
+              fill={showNotif ? "stone-500" : "white"}
+              stroke={showNotif ? "stone-500" : "black"}
             />
           </button>
           {showNotif && (
-            <div className="afterarrow absolute -right-10 mt-2 w-64 bg-white border border-stone-500 rounded-md shadow-lg z-50">
+            <div className=" absolute -right-6 mt-2 w-64 bg-white border border-stone-500 rounded-md shadow-lg z-50">
               <div className="px-4 py-2  font-normal text-black">
                 Notifications
               </div>
@@ -43,24 +42,29 @@ export default function Nav({ setExam }) {
           )}
         </div>
         {/* Profile Dropdown */}
-        <div className="flex items-center gap-2 relative">
-          <div className="p-2 bg-blue-200 rounded-full w-[50px] h-[50px] flex items-center justify-center">
-            @@
-          </div>
-          <button
-            onClick={() => {
-              setShowProfile((v) => !v);
-              setShowNotif(false);
-            }}
+        <div className="flex relative ">
+          <div
+            className={`flex items-center gap-2 p-1 ${ showProfile ? "border-4 border-blue-900 " : " border-0" }`} onClick={() => {
+                setShowProfile((v) => !v);
+                setShowNotif(false);
+              }}
           >
-            <ChevronDown
-              className={`w-4 h-4 ${
-                showProfile ? "transform rotate-180" : ""
-              } transition-transform `}
-            />
-          </button>
+            <div className="p-2 bg-blue-200 rounded-full w-[50px] h-[50px] flex items-center justify-center cursor-default">
+              @@
+            </div>
+            <button
+              
+            >
+              <ChevronDown
+                className={`w-4 h-4 ${
+                  showProfile ? "transform rotate-180" : ""
+                } transition-transform `}
+              />
+            </button>
+          </div>
+
           {showProfile && (
-            <div className="absolute afterarrow afterarrow2 top-13 -right-4  w-48 bg-white border border-stone-500 rounded-md z-50">
+            <div className="absolute   top-16 right-0  w-48 bg-white border border-stone-500 rounded-md z-50">
               <ul className="py-2">
                 <li>
                   <Link
@@ -75,7 +79,7 @@ export default function Nav({ setExam }) {
                     href="#"
                     className="block px-4 py-2 hover:bg-gray-100 text-gray-700"
                   >
-                    Preferences
+                    Grade
                   </Link>
                 </li>
                 <li>
@@ -83,7 +87,7 @@ export default function Nav({ setExam }) {
                     href="#"
                     className="block px-4 py-2 hover:bg-gray-100 text-gray-700"
                   >
-                    Edit Account
+                    Calendar
                   </Link>
                 </li>
                 <li>
@@ -91,7 +95,23 @@ export default function Nav({ setExam }) {
                     href="#"
                     className="block px-4 py-2 hover:bg-gray-100 text-gray-700"
                   >
-                    Help
+                    Private Files
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#"
+                    className="block px-4 py-2 hover:bg-gray-100 text-gray-700"
+                  >
+                    Report
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#"
+                    className="block px-4 py-2 hover:bg-gray-100 text-gray-700"
+                  >
+                    Preference
                   </Link>
                 </li>
                 <li>

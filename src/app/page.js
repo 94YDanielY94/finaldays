@@ -96,7 +96,7 @@ export default function Home() {
         <div className="w-full text-center text-gray-700 text-sm p-2">
           This is not from: <br />
           <span className="text-blue-900 font-light">
-            exam(Number).ethernet.government
+            exam(Number).ethernet.edu,et
           </span>
         </div>
       </div>
