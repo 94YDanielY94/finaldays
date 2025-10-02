@@ -6,15 +6,13 @@
 :root {
   --arrowLength: 15px;
   --radius: 0.625rem;
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(1 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --primary: oklch(76.358% 0.00009 271.152 / 0.452);
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
+  --secondary: oklch(37.632% 0.25125 264.523);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
@@ -37,6 +35,8 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --background: oklch(100% 0 0);
+  --foreground: oklch(0.145 0 0);
 }
 
 @theme inline {
@@ -80,8 +80,8 @@
 }
 
 body {
-  background: var(--foreground);
-  color: var(--background);
+  background: var(--background);
+  color: var(--foreground );
 }
 
 .backgrounds{
@@ -100,7 +100,6 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
-
 
 .dark {
   --background: oklch(0.145 0 0);
